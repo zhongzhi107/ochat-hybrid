@@ -1,0 +1,49 @@
+{
+  "name": "ochat-static",
+  "version": "1.0.0",
+  "description": "ochat",
+  "repository": "http://gitlab.corp.qunar.com/fe/ochat",
+  "scripts": {
+    "start": "grunt serve",
+    "test": "grunt serve:dist --deploy-type=beta"
+  },
+  "author": "Qunar Team",
+  "dependencies": {
+    "ajax": "zhongzhi107/ajax",
+    "autoprefixer-loader": "2.0.0",
+    "babel": "5.8.21",
+    "babel-core": "5.8.22",
+    "babel-eslint": "4.1.3",
+    "babel-loader": "5.3.2",
+    "classnames": "2.1.3",
+    "cookie": "0.2.0",
+    "css-loader": "0.16.0",
+    "eslint-plugin-react": "3.5.0",
+    "flux": "2.1.1",
+    "grunt": "0.4.5",
+    "grunt-connect-route": "0.3.2",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-connect": "0.10.1",
+    "grunt-contrib-copy": "0.8.0",
+    "grunt-contrib-jade": "0.15.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-eslint": "17.2.0",
+    "grunt-rev": "0.1.0",
+    "grunt-usemin": "3.0.0",
+    "grunt-webpack": "1.0.8",
+    "jade": "^1.11.0",
+    "less": "2.5.1",
+    "less-loader": "2.2.0",
+    "lodash": "3.10.1",
+    "matchdep": "0.3.0",
+    "object-assign": "4.0.1",
+    "react": "0.13.3",
+    "style-loader": "0.12.3",
+    "time-grunt": "1.2.1",
+    "webpack": "1.11.0",
+    "webpack-dev-middleware": "1.2.0"
+  },
+  "devDependencies": {
+    "grunt-gitkeep": "0.0.2"
+  }
+}

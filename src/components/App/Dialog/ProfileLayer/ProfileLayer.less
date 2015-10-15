@@ -1,0 +1,87 @@
+.profileLayer {
+	position: absolute;
+	z-index: 999;
+	height: 220px;
+	background: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	box-shadow: rgba(0, 0, 0, .1) 0 5px 10px;
+	transition: height .3s ease-in;
+	&.long {
+		height: 320px;
+	}
+	img {
+		width: 220px;
+		height: 220px;
+	}
+	.info {
+		position: relative;
+		top: -50px;
+		height: 48px;
+		padding: 10px;
+		background: rgba(0, 0, 0, .3);
+		.button {
+			float: right;
+			width: 24px;
+			height: 24px;
+			margin-top: 4px;
+			border-radius: 2px;
+			cursor: pointer;
+			.btn {
+				display: block;
+				width: 22px;
+				height: 22px;
+				border-radius: 4px;
+			}
+			.sendMessage {
+				background: url(/images/source.png) 0 -728px;
+			}
+			.addContact {
+				background: url(/images/source.png) 0 -706px;
+			}
+			.close {
+				background: url(/images/source.png) 0 -684px;
+			}
+		}
+		h2 {
+			margin: 0;
+			font-size: 18px;
+			line-height: 1.6;
+			color: #fff;
+		}
+	}
+	.addContactPanel {
+		position: relative;
+		top: -50px;
+		padding: 10px 20px;
+		h2 {
+			margin: 0;
+			font-size: 18px;
+			line-height: 1.6;
+		}
+		input {
+			width: 120px;
+			margin: 10px 12px 10px 0;
+			padding: 7px 10px;
+			border: 0;
+			font-size: 14px;
+			font-weight: normal;
+			color: #888;
+			background: #eee;
+		}
+		.sendAddContact {
+			display: inline-block;
+			padding: 4px 10px;
+			border: 1px solid #c1c1c1;
+			border-radius: 2px;
+			font-size: 13px;
+			line-height: 1.6;
+			color: #222;
+			cursor: pointer;
+			&:hover {
+				background: #f8f8f8;
+				border: 1px solid #2095f0;
+			}
+		}
+	}
+}
