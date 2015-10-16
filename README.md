@@ -43,4 +43,6 @@
 ```shell
 $ npm install                   # Install Node.js components listed in ./package.json
 $ npm start                     # Compile and launch
+
+#visit http://localhost:9002/demo
 ```

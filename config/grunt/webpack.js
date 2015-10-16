@@ -16,14 +16,17 @@ const AUTOPREFIXER_LOADER = '!autoprefixer?{browsers:[' +
 '"Android 2.3", "Android >= 4", "Chrome >= 20", "Firefox >= 24", ' +
 '"Explorer >= 8", "iOS >= 6", "Opera >= 12", "Safari >= 6"]}';
 
-const STYLE_LOADER = 'style!css' + MINIMIZE + AUTOPREFIXER_LOADER;
+const STYLE_LOADER = `style!css${MINIMIZE}${AUTOPREFIXER_LOADER}`;
 
 const PAGE_DIRECTORY = `./${marine.path.app}/templates/pages`;
 
 const ENTRY_FILE_NAME = 'entry.js';
 
 // webpack插件
-let plugins = [];
+let plugins = [
+  new webpack.optimize.CommonsChunkPlugin(marine.vendorJs.chunkName)
+];
+
 if (!DEBUG) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
@@ -41,17 +44,15 @@ var getEntries = () => {
     if (filename === ENTRY_FILE_NAME) {
       entries[subdir] = './' + abspath;
     }
-    // console.log('abspath:%s\n rootdir:%s\n subdir:%s\n filename:%s', abspath, rootdir, subdir, filename);
   });
+  entries.vendor = marine.vendorJs.files;
   return entries;
 };
 
 export default {
   options: {
     cache: false,
-    entry: getEntries(),//{
-    //   demo: `./${marine.path.app}/templates/pages/demo/entry.js`
-    // },
+    entry: getEntries(),
     output: {
       filename: '[name].js',
       path: path.join(process.cwd(), '<%=ma.path.dist%>', 'js'),

@@ -16,35 +16,37 @@ let mountFolder = (connect, dir) => {
   return connect.static(require('path').resolve(dir));
 };
 
+let parseJade = (req, res, next) => {
+  let pathname = url.parse(req.url).pathname;
+  let jadePath = path.join(ma.path.app, 'templates/pages', pathname, 'index.jade');
+  if (fs.existsSync(jadePath)) {
+    res.setHeader('Content-Type', 'text/html;charset=UTF-8');
+    res.end(jade.renderFile(jadePath));
+  } else {
+    next();
+  }
+}
+
 export default {
   rules: routerApi,
+  options: {
+    port: grunt.option('port') || ma.port.www,
+    hostname: '0.0.0.0',
+    localhost: grunt.option('host') || 'localhost'
+  },
   dev: {
     options: {
-      port: grunt.option('port') || ma.port.www,
-      hostname: '0.0.0.0',
-      localhost: grunt.option('host') || 'localhost',
       livereload: ma.port.liveReload,
       middleware: (connect) => {
         return [
           mountFolder(connect, ma.path.app + '/public'),
-          function(req, res, next) {
-            let pathname = url.parse(req.url).pathname;
-            let jadePath = path.join(ma.path.app, 'templates/pages', pathname, 'index.jade');
-            if (fs.existsSync(jadePath)) {
-              res.setHeader('Content-Type', 'text/html;charset=UTF-8');
-              res.end(jade.renderFile(jadePath));
-            } else {
-              next();
-            }
-          },
+          parseJade,
           rewriteRequest,
           webpackDevMiddleware(webpack(webpackConfig.options), {
             publicPath: '/js',
-            //watchDelay: 5000,
-            //contentBase: '.tmp',
-            //inline: true,
-            // hot: true,
-            stats: {colors: true}
+            stats: {
+              colors: true
+            }
           })
         ];
       }
@@ -52,14 +54,11 @@ export default {
   },
   dist: {
     options: {
-      port: grunt.option('port') || ma.port.www || 9000,
-      hostname: '0.0.0.0',
-      localhost: grunt.option('host') || 'localhost',
       keepalive: true,
       middleware: (connect) => {
         return [
           mountFolder(connect, ma.path.dist),
-          mountFolder(connect, ma.path.dist + '/views'),
+          mountFolder(connect, ma.path.dist + '/pages'),
           rewriteRequest
         ];
       }

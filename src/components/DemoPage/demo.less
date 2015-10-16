@@ -1,0 +1,103 @@
+body {
+  background-color: #eee;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  float: left;
+  padding: 5px;
+}
+
+dd {
+  text-align: right;
+  padding: 5px;
+  color: #989797;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.box {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.base {
+  margin-top: 10px;
+  padding: 10px;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #00af45;
+  }
+
+  .detail {
+    padding-left: 8px;
+    display: inline-block;
+    vertical-align: top;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 0;
+
+      .gender {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+      }
+
+      .male {
+        background-color: blue;
+      }
+
+      .female {
+        background-color: #fc71e6;
+      }
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin: 2px;
+      color: #989797;
+    }
+  }
+}
+
+.extend {
+  margin-top: 10px;
+  margin-bottom: 100px;
+  padding: 5px;
+}
+
+.buttons {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.green-button {
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: #00abb9;
+}

@@ -6,18 +6,15 @@ export default {
   options: {
     livereload: marine.port.liveReload
   },
-  html: {
-    files: [
-      '<%=ma.path.app%>/public/index.html'
-    ]
-  },
-  js: {
-    files: [
-      '<%=ma.path.app%>/**/*.{js,css}'
-    ],
+  dev: {
     options: {
       //TODO: 暂时整页刷新
-      reload: true
-    }
+      reload: true,
+      debounceDelay: 1000,
+    },
+    files: [
+      '<%=ma.path.app%>/templates/**/*.jade',
+      '<%=ma.path.app%>/**/*.{js,css}'
+    ]
   }
 };
