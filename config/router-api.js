@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @fileOverview Grunt URL rewrite rule config file
- * @author <a href="mailto:zhi.zhong@qunar.com">Zhongzhi</a>
+ * @author <a href="mailto:zhong.zhi@163.com">Zhongzhi</a>
  * @version	1.0.1
  */
 
