@@ -1,2 +1,2 @@
 
-cp -R ./* ../../../github/ochat-hybrid
+cp -R ./* ../../q/ochat/ochat-hybrid
