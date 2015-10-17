@@ -11,7 +11,7 @@ export default class Tips extends Component {
 
   render() {
     return (
-      <div className="tips">{this.props.children}</div>
+      <div className={this.props.prefixCls || 'q-tips'}>{this.props.children}</div>
     );
   }
 };
