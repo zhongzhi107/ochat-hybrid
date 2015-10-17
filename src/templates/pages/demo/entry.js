@@ -8,5 +8,5 @@ import DemoPage from '../../../components/demo-page';
 
 ReactDOM.render(
   <DemoPage />,
-  document.getElementById('body')
+  document.getElementById('__react-content')
 );
