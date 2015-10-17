@@ -62,7 +62,7 @@ export default {
       loaders: [
         { test: /\.css$/, loader: STYLE_LOADER },
         { test: /\.less$/, loader: STYLE_LOADER + '!less' },
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?stage=0'}
       ]
     },
     plugins: plugins
