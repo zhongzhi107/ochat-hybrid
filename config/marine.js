@@ -29,7 +29,9 @@ let common = {
     files: [
       'react',
       'react-dom',
-      'ajax'
+      'classnames',
+      'ajax',
+      'core-decorators'
     ]
   },
 
