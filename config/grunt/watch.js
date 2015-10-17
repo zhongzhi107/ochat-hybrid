@@ -14,7 +14,7 @@ export default {
     },
     files: [
       '<%=ma.path.app%>/templates/**/*.jade',
-      '<%=ma.path.app%>/**/*.{js,css}'
+      '<%=ma.path.app%>/**/*.{js,css,less}'
     ]
   }
 };
