@@ -1,7 +1,5 @@
 'use strict';
 
-//import assign from 'object-assign';
-
 let env = process.env.NODE_ENV || 'development';
 
 // Get profile configs

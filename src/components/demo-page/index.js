@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import http from '../../core/HttpClient';
+import http from '../../utils/http';
 import classNames from 'classnames';
 import { autobind } from 'core-decorators';
 import Tips from '../tips';
