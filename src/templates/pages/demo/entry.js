@@ -4,7 +4,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DemoPage from '../../../components/demo-page';
+import DemoPage from '../../../components/pages/demo';
 
 ReactDOM.render(
   <DemoPage />,

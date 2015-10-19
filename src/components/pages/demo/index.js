@@ -1,10 +1,10 @@
 'use strict';
 
 import React, {Component} from 'react';
-import http from '../../utils/http';
+import http from '../../../utils/http';
 import classNames from 'classnames';
 import { autobind } from 'core-decorators';
-import Tips from '../tips';
+import Tips from '../../tips';
 import './demo.less';
 
 export default class DemoPage extends Component {
