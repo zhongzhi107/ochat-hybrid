@@ -11,9 +11,13 @@ export default class Tips extends Component {
     children: PropTypes.string.isRequired
   }
 
+  static defaultProps = {
+    prefixCls: 'q-tips'
+  }
+
   render() {
     return (
-      <div className={this.props.prefixCls || 'q-tips'}>{this.props.children}</div>
+      <div className={this.props.prefixCls}>{this.props.children}</div>
     );
   }
 };
