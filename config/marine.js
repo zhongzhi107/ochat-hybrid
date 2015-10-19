@@ -1,6 +1,6 @@
 'use strict';
 
-import assign from 'object-assign';
+//import assign from 'object-assign';
 
 let env = process.env.NODE_ENV || 'development';
 
@@ -56,4 +56,4 @@ let common = {
 
 };
 
-export default assign({}, common, profile);
+export default Object.assign({}, common, profile);

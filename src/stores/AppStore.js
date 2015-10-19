@@ -1,7 +1,7 @@
 'use strict';
 
 import {EventEmitter} from 'events';
-import assign from 'object-assign';
+// import assign from 'object-assign';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import _ from 'lodash';
@@ -134,7 +134,7 @@ function setCurrentSessionId(sId) {
   });
 
   if(index > -1){
-    state.currentSessionId = sId;  
+    state.currentSessionId = sId;
   }
   else{
     let item = _.find(state.profile.contacts,(elem) => {
@@ -151,7 +151,7 @@ function setCurrentTab(index){
 }
 
 function setCurrentContactId(contactId){
-  state.currentContactId = contactId; 
+  state.currentContactId = contactId;
 }
 
 function clearUnreadMessage(sId) {
@@ -165,7 +165,7 @@ function clearUnreadMessage(sId) {
 }
 
 function getSessionAttr(data){
-  
+
   let index = _.findIndex(state.sessionList, (item) => {
     return data.sId === item.id;
   });
@@ -189,7 +189,7 @@ function recieveAlterSessionAttr(data){
   if(index > -1){
 
     let session = state.sessionList[index];
-    
+
     //修改者名称
     let alterName = '';
 
@@ -240,7 +240,7 @@ function unshiftNotice(data){
   state.notice.unshift(data);
 }
 
-var AppStore = assign({}, EventEmitter.prototype, {
+var AppStore = Object.assign({}, EventEmitter.prototype, {
 
   getAllState: () => {
     return state;
