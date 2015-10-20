@@ -39,7 +39,7 @@ export default {
       livereload: ma.port.liveReload,
       middleware: (connect) => {
         return [
-          mountFolder(connect, ma.path.app + '/public'),
+          mountFolder(connect, ma.path.app + '/assets'),
           parseJade,
           rewriteRequest,
           webpackDevMiddleware(webpack(webpackConfig.options), {
