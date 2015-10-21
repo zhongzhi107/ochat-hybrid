@@ -18,7 +18,7 @@ let mountFolder = (connect, dir) => {
 
 let parseJade = (req, res, next) => {
   let pathname = url.parse(req.url).pathname;
-  let jadePath = path.join(ma.path.app, 'templates/pages', pathname, 'index.jade');
+  let jadePath = path.join(ma.path.app, 'templates/pages', `${pathname}.jade`);
   if (fs.existsSync(jadePath)) {
     res.setHeader('Content-Type', 'text/html;charset=UTF-8');
     res.end(jade.renderFile(jadePath));

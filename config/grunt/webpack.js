@@ -18,7 +18,7 @@ const AUTOPREFIXER_LOADER = '!autoprefixer?{browsers:[' +
 
 const STYLE_LOADER = `style!css${MINIMIZE}${AUTOPREFIXER_LOADER}`;
 
-const PAGE_DIRECTORY = `./${marine.path.app}/templates/pages`;
+const PAGE_DIRECTORY = `./${marine.path.app}/containers`;
 
 const ENTRY_FILE_NAME = 'entry.js';
 
@@ -64,6 +64,13 @@ export default {
         { test: /\.less$/, loader: STYLE_LOADER + '!less' },
         { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?stage=0'}
       ]
+    },
+    resolve: {
+      modulesDirectories: [
+        `${marine.path.app}`,
+        'node_modules'
+      ],
+      extensions: ['', '.json', '.js']
     },
     plugins: plugins
   },
