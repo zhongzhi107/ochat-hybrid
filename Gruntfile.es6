@@ -88,6 +88,15 @@ export default (grunt) => {
       });
     }
 
+    // 禁用eslint
+    if (grunt.option('no-eslint')) {
+      _.remove(taskList, (item) => {
+        return item === 'eslint';
+      });
+    }
+
+    taskList = _.uniq(taskList);
+
     grunt.task.run(taskList);
   });
 
