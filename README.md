@@ -4,9 +4,8 @@
 
 ## 前提
 
-需要nodejs，版本 >0.10
-
-如无nodejs环境，请到官方网站（[http://nodejs.org](http://nodejs.org)）下载、安装
+* nodejs>0.10
+* React>=0.14
 
 ## 步骤
 
@@ -14,8 +13,8 @@
 # 更新为淘宝镜像
 npm config set registry https://registry.npm.taobao.org
 
-# 安装grunt-cli和PageSpeed Insights
-npm install -g grunt-cli psi
+# 安装grunt-cli
+npm install -g grunt-cli
 
 # 安装项目依赖包
 npm install
@@ -41,6 +40,7 @@ grunt server:dist
 * [模板]支持jade
 * [less]支持less
 * [webpack]支持模块化、JSX
+* [redux]管理页面state
 * [autoprefixer]自动补全浏览器厂商前缀
 * [esint]esint语法检查
 * [router-api]开发环境支持同步／异步接口假数据
@@ -63,26 +63,27 @@ grunt server:dist
 │   ├── /grunt/                 # Grunt任务配置文件
 │   ├── /marine.js              # 项目综合配置文件
 │   └── /router-api.js          # APIs接口mock路由配置文件
-├── /docs/                      # 文档
-├── /node_modules/              # 依赖包
 ├── /prd/                       # 项目编译输出目录
 ├── /src/                       # 项目源码目录
 │   ├── /asset/                 # 静态资源，包含图片、字体等
 │   ├── /components/            # React components
-│   │   ├── /pages/             # 页面组件
-│   │   │   └── /demo/          # demo页面
-│   │   │       ├── /xxx/       # 页面包含的非公用其他组件
-│   │   │       ├── demo.less   # 页面css文件
-│   │   │       └── index.js    # 页面组件定义文件
 │   │   ├── /dialog/            # 公用dialog组件
 │   │   └── /tips/              # 公用tips组件
+│   ├── /containers/            # 页面组件
+│   │   └── /demo/              # demo页面
+│   │       ├── /xxx/           # 页面包含的非公用其他组件
+│   │       ├── actions.js      # actions.js
+│   │       ├── demo.less       # 页面css文件
+│   │       ├── entry.js        # 约定的js入口文件
+│   │       ├── index.js        # 页面组件定义文件
+│   │       └── reducers.js     # reducers.js
+│   ├── /decorators/            # 装饰器
 │   ├── /templates/             # Jade templates
 │   │   ├── /layout/            # 布局模版
 │   │   └── /pages/             # 页面目录
-│   │       └── /demo/          # demo页面
-│   │           ├── entry.js    # 约定的js入口文件
-│   │           └── index.jade  # 模版文件
+│   │       └── /demo.jade      # 模版文件
 │   └── /utils/                 # Utility classes and functions
+│── .babelrc                    # babel loader配置
 │── .editorconfig               # 代码编辑器配置
 │── .eslintrc                   # eslint配置
 │── Gruntfile.es6               # 用ES6编写的Grunt主配置
