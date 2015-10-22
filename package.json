@@ -6,6 +6,14 @@
     "start": "grunt serve",
     "test": "grunt serve:dist --deploy-type=beta"
   },
+  "keywords": [
+    "react",
+    "reactjs",
+    "redux",
+    "webpack",
+    "hybrid",
+    "grunt"
+  ],
   "dependencies": {
     "ajax": "zhongzhi107/ajax",
     "autoprefixer-loader": "2.0.0",
