@@ -79,7 +79,6 @@ var getEntries = () => {
     // 扩展阅读 http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
     plugins.push(new webpack.optimize.CommonsChunkPlugin({
       names: marine.chunks.map((item) => {
-        console.log(item.name);
         return item.name
       })
     }));
