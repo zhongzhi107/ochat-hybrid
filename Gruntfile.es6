@@ -1,3 +1,8 @@
+/**
+ * @file grunt主配置文件
+ * @author zhi.zhong
+ */
+
 'use strict';
 
 import _ from 'lodash';

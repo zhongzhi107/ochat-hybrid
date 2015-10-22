@@ -1,3 +1,8 @@
+/**
+ * @file 网站综合配置文件
+ * @author zhi.zhong
+ */
+
 'use strict';
 
 let env = process.env.NODE_ENV || 'development';
@@ -22,16 +27,37 @@ let common = {
     dist: 'prd'
   },
 
-  vendorJs: {
-    chunkName: 'vendor.js',
-    files: [
-      'react',
-      'react-dom',
-      'classnames',
-      'ajax',
-      'core-decorators'
-    ]
-  },
+  // 打包规则
+  chunks: [
+    {
+      name: 'redux.js',
+      modules: [
+        'redux',
+        'react-redux'
+      ]
+    },
+
+    {
+      name: 'remove.js',
+      modules: [
+        'classnames',
+        'core-decorators'
+      ]
+    },
+
+    // CommonsChunkPlugin会将最后一个当作Entry chunk
+    // Todo: 通过参数控制Entry chunk
+    {
+      name: 'vendor.js',
+      modules: [
+        'react',
+        'react-dom',
+        // 'redux',
+        // 'react-redux',
+        'utils/http'
+      ]
+    },
+  ],
 
   // 静态文件类型
   assetsType: [

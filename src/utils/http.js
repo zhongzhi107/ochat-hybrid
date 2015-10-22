@@ -1,3 +1,8 @@
+/**
+ * @file 浏览器端Ajax封装
+ * @author zhi.zhong
+ */
+
 'use strict';
 
 import ajax from 'ajax';

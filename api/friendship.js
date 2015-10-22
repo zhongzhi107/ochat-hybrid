@@ -1,3 +1,8 @@
+/**
+ * @file 接口mock数据文件，用于本地开发使用，不影响线上
+ * @author zhi.zhong
+ */
+
 'use strict';
 
 import {random} from 'lodash';

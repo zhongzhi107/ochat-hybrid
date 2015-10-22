@@ -1,3 +1,8 @@
+/**
+ * @file grunt任务配置文件
+ * @author zhi.zhong
+ */
+
 'use strict';
 
 export default {

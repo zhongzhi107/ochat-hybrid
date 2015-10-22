@@ -57,7 +57,7 @@ export default class DemoPage extends Component {
       </div>
     );
   }
-  
+
   buttonClick() {
     const { dispatch } = this.props;
     dispatch(updateDemo());
@@ -66,17 +66,8 @@ export default class DemoPage extends Component {
   renderTips(showTips) {
     if (showTips) {
       return (
-        <Tips name="Joe">操作已成功</Tips>
+        <Tips>操作已成功</Tips>
       );
     }
   }
 }
-
-// // Which props do we want to inject, given the global state?
-// // Note: use https://github.com/faassen/reselect for better performance.
-// function select(state) {
-//   return { state };
-// }
-//
-// // Wrap the component to inject dispatch and state into it
-// export default connect(select)(DemoPage);
