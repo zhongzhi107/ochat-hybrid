@@ -25,7 +25,8 @@ npm install
 # 运行grunt本地服务器
 npm start
 
-# 成功启动话，访问 http://localhost:9002/demo 可以浏览网页
+# 浏览网页
+open http://localhost:9002/demo
 
 #### 其他命令 ####
 # 编译全站

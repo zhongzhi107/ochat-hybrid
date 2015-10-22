@@ -1,19 +1,20 @@
 'use strict';
 
-// This file bootstraps the entire application.
+// This file bootstraps the page.
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { createStore } from 'redux';
-// import { Provider } from 'react-redux';
-// import todoApp from '../../../reducers/reducers';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import DemoPage from '.';
+import demo from './reducers';
 
-// let store = createStore(todoApp);
+let store = createStore(demo);
+let root = document.getElementById('root');
 
 ReactDOM.render(
-  // <Provider store={store}>
-    <DemoPage />,
-  // </Provider>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <DemoPage />
+  </Provider>,
+  root
 );

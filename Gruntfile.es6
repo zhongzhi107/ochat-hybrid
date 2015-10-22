@@ -71,6 +71,7 @@ export default (grunt) => {
 
     let taskList = [
       `clean:${target}`,
+      'eslint',
       'build',
       'configureRewriteRules',
       `connect:${target}`,
@@ -93,7 +94,7 @@ export default (grunt) => {
   // 注册编译任务
   grunt.registerTask('build', [
     'clean:dist',
-    // 'eslint',
+    'eslint',
     'copy',
     'webpack',
     'jade'

@@ -34,6 +34,7 @@
     "less-loader": "2.2.0",
     "lodash": "3.10.1",
     "matchdep": "0.3.0",
+    "object-assign": "^4.0.1",
     "react": "0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
