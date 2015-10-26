@@ -50,6 +50,7 @@
     "style-loader": "0.12.3",
     "time-grunt": "1.2.1",
     "webpack": "1.11.0",
-    "webpack-dev-middleware": "1.2.0"
+    "webpack-dev-middleware": "1.2.0",
+    "webpack-hot-middleware": "^2.4.1"
   }
 }

@@ -79,8 +79,8 @@ export default (grunt) => {
       'eslint',
       'build',
       'configureRewriteRules',
-      `connect:${target}`,
-      'watch'
+      `connect:${target}`//,
+      // 'watch'
     ];
 
     if (target === 'dist') {

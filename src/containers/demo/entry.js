@@ -18,3 +18,7 @@ ReactDOM.render(
   </Provider>,
   root
 );
+
+if (module.hot) {
+  module.hot.accept();
+}

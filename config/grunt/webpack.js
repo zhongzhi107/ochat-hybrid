@@ -38,8 +38,13 @@ const PAGE_DIRECTORY = `./${marine.path.app}/containers`;
 // 入口文件约定的名称
 const ENTRY_FILE_NAME = 'entry.js';
 
+// JS文件输出目录
+const PUBLIC_PATH = 'js';
+
 // webpack插件
-let plugins = [];
+let plugins = [new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()];
 
 if (!DEBUG) {
   // 添加uglify插件压缩代码
@@ -64,6 +69,8 @@ if (!DEBUG) {
  */
 var getEntries = () => {
   let entries = {};
+  entries.__webpack_hmr = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000';
+
   grunt.file.recurse(PAGE_DIRECTORY, (abspath, rootdir, subdir, filename) => {
     if (filename === ENTRY_FILE_NAME) {
       entries[`${subdir}.js`] = './' + abspath;
@@ -91,14 +98,24 @@ var getEntries = () => {
 export default {
   options: {
     cache: false,
+    devMiddleware: {
+      headers: {'Access-Control-Allow-Origin': '*'},
+      hot: true,
+      lazy: false,
+      publicPath: '/' + PUBLIC_PATH,
+      stats: {
+        colors: true
+      }
+    },
     entry: getEntries(),
     output: {
       // 输出文件名称，[name]是占位符，会用entry对象中的key替换
       filename: '[name]',
       // build过程产生的物理文件输出目录
-      path: path.join(process.cwd(), '<%=ma.path.dist%>', 'js'),
+      path: path.join(process.cwd(), '<%=ma.path.dist%>', PUBLIC_PATH),
       // 调试模式下文件流输出路径（无物理文件，仅浏览器可访问）
-      publicPath: '/js',
+      // 该配置必须存在，会影响hot-update.js的输出路径
+      publicPath: '/' + PUBLIC_PATH,
     },
     module: {
       loaders: [

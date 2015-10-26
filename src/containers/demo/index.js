@@ -35,7 +35,7 @@ export default class DemoPage extends Component {
               <span className={classNames('gender', ['male', 'female'][data.gender-1])}></span>
             </h3>
             <p>
-              <span>账号：</span>
+              <span>账号8：</span>
               <span>{data.username}</span>
             </p>
           </div>

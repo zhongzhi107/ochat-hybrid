@@ -17,6 +17,8 @@ import ma from '../marine';
 import routerApi from '../router-api';
 import {rewriteRequest} from 'grunt-connect-route/lib/utils';
 
+let compiler = webpack(webpackConfig.options);
+
 let mountFolder = (connect, dir) => {
   return connect.static(require('path').resolve(dir));
 };
@@ -41,18 +43,15 @@ export default {
   },
   dev: {
     options: {
-      livereload: ma.port.liveReload,
+      // livereload: ma.port.liveReload,
+      keepalive: true,
       middleware: (connect) => {
         return [
           mountFolder(connect, ma.path.app + '/assets'),
           parseJade,
           rewriteRequest,
-          webpackDevMiddleware(webpack(webpackConfig.options), {
-            publicPath: '/js',
-            stats: {
-              colors: true
-            }
-          })
+          webpackDevMiddleware(compiler, webpackConfig.options.devMiddleware),
+          require('webpack-hot-middleware')(compiler)
         ];
       }
     }
