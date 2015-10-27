@@ -1,7 +1,7 @@
 /**
- * @file webpack配置文件
- * @author zhi.zhong
- */
+* @file webpack配置文件
+* @author zhi.zhong
+*/
 
 'use strict';
 
@@ -42,9 +42,14 @@ const ENTRY_FILE_NAME = 'entry.js';
 const PUBLIC_PATH = 'js';
 
 // webpack插件
-let plugins = [new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()];
+let plugins = [
+  new webpack.DefinePlugin({
+    NODE_ENV: process.env.NODE_ENV
+  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin()
+];
 
 if (!DEBUG) {
   // 添加uglify插件压缩代码
@@ -61,12 +66,12 @@ if (!DEBUG) {
 }
 
 /**
- * 生成打包配置，包含2部分：
- * 1. 页面入口JS文件
- * 2. 需要独立打包的code splitting文件
- * @return {Object}
- * @see http://webpack.github.io/docs/code-splitting.html
- */
+* 生成打包配置，包含2部分：
+* 1. 页面入口JS文件
+* 2. 需要独立打包的code splitting文件
+* @return {Object}
+* @see http://webpack.github.io/docs/code-splitting.html
+*/
 var getEntries = () => {
   let entries = {};
   entries.__webpack_hmr = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000';
