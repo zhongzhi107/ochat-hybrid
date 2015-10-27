@@ -60,8 +60,11 @@ export default (grunt) => {
     // 编译jade成html
     jade: require('./config/grunt/jade'),
 
-    // 监听文件变化
-    watch: require('./config/grunt/watch'),
+    // usemin预处理程序
+    useminPrepare: require('./config/grunt/usemin-prepare'),
+
+    // 文件concat、cdn替换等操作
+    usemin: require('./config/grunt/usemin'),
 
     // webpack
     webpack: require('./config/grunt/webpack'),
@@ -111,6 +114,8 @@ export default (grunt) => {
     'eslint',
     'copy',
     'webpack',
-    'jade'
+    'jade',
+    'useminPrepare',
+    'usemin'
   ]);
 };
