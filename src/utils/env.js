@@ -5,6 +5,8 @@
 
 'use strict';
 
+import assign from 'object-assign';
+
 let env = 'development';
 
 // for webpack
@@ -19,4 +21,4 @@ let profile = require('config/env/' + env);
 let common = {
 };
 
-export default Object.assign({}, common, profile);
+export default assign({}, common, profile);
