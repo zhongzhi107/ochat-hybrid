@@ -74,6 +74,32 @@ export default (grunt) => {
   // 注册默认任务
   grunt.registerTask('default', ['build']);
 
+  // 生成Hybrid配置文件
+  grunt.registerTask('yaml', () => {
+    // 页面入口文件目录
+    let pageDirectory = `./${ma.path.app}/templates/pages`;
+    let projectName = require('./package.json').name;
+    let indexYaml = 'index.yaml';
+    let json = {
+      'hybridid': `${ma.hybrid.id}`,
+      'version': 1,
+      'iOS_vid': `${ma.hybrid.iosVid}`,
+      'android_vid': `${ma.hybrid.androidVid}`,
+      'domain': {},
+      'remote': []
+    };
+    json.domain[ma.domain.ochat] = ma.domain[process.env.NODE_ENV];
+    grunt.file.recurse(pageDirectory, (abspath, rootdir, subdir, filename) => {
+      if (/\.jade$/i.test(filename)) {
+        filename = filename.replace('.jade', '.html')
+        json.remote.push(`http://${ma.domain.ochat}/${projectName}/prd/pages/${filename}`);
+      }
+    });
+    let yaml = require('js-yaml').safeDump(json);
+    grunt.file.write(indexYaml, yaml);
+    grunt.log.write(yaml);
+  });
+
   // 注册本地开发环境任务
   grunt.registerTask('serve', (target = 'dev') => {
 
@@ -82,8 +108,7 @@ export default (grunt) => {
       'eslint',
       'build',
       'configureRewriteRules',
-      `connect:${target}`//,
-      // 'watch'
+      `connect:${target}`
     ];
 
     if (target === 'dist') {

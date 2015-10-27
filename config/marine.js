@@ -78,6 +78,20 @@ let common = {
     'ico'
   ],
 
+  hybrid: {
+    id: 'mob_im',
+    iosVid: 'vid_80011085',
+    androidVid: 'vid_60001091,com.mxxx.atom.browser_11'
+  },
+
+  domain: {
+    ochat: 'ochat.xxx.com',
+    development: 'l-wap1.wap.dev.cn6.xxx.com',
+    beta: 'mobileqzz.beta.xxx.com',
+    production: 'xxxzz.com'
+  }
+
+
 };
 
 export default Object.assign({}, common, profile);
