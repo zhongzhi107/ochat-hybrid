@@ -1,8 +1,0 @@
-hybridid: mob_im
-version: 1
-iOS_vid: vid_80011085
-android_vid: 'vid_60001091,com.mxxx.atom.browser_11'
-domain:
-  ochat.xxx.com: xxxzz.com
-remote:
-  - 'http://ochat.xxx.com/ochat-hybrid/prd/pages/demo.html'
