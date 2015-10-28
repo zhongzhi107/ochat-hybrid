@@ -44,7 +44,7 @@ const PUBLIC_PATH = 'js';
 // webpack插件
 let plugins = [
   new webpack.DefinePlugin({
-    NODE_ENV: process.env.NODE_ENV
+    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
