@@ -1,6 +1,9 @@
 'use strict';
 
-import {cdnRoot, assetsType} from '../marine';
+import {cdnDomain, assetsType} from '../marine';
+import { name as projectName } from '../../package';
+
+const CDN_ROOT = `http://${cdnDomain}/${projectName}/prd`;
 
 // usemin支持传入前置/后置函数，处理匹配中的文件名
 var filterIn = function (m) {
@@ -14,7 +17,7 @@ var filterOut = function (m) {
   let reg = new RegExp(pattern, attributes);
 
   if (reg.test(m)) {
-    m = cdnRoot + m;
+    m = CDN_ROOT + m;
   }
   return m;
 };

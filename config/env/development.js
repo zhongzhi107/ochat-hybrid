@@ -6,5 +6,5 @@
 'use strict';
 
 export default {
-  cdnRoot: ''
+  cdnDomain: 'l-wap1.wap.dev.cn6.xxx.com',
 };

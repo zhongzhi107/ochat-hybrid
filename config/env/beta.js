@@ -6,5 +6,5 @@
 'use strict';
 
 export default {
-
+  cdnDomain: 'mobileqzz.beta.xxx.com',
 };

@@ -78,7 +78,7 @@ export default (grunt) => {
   grunt.registerTask('yaml', () => {
     // 页面入口文件目录
     let pageDirectory = `./${ma.path.app}/templates/pages`;
-    let projectName = require('./package.json').name;
+    let projectName = require('./package').name;
     let indexYaml = 'index.yaml';
     let json = {
       'hybridid': `${ma.hybrid.id}`,
@@ -88,11 +88,11 @@ export default (grunt) => {
       'domain': {},
       'remote': []
     };
-    json.domain[ma.domain.ochat] = ma.domain[process.env.NODE_ENV];
+    json.domain[ma.ochatDomain] = ma.cdnDomain;
     grunt.file.recurse(pageDirectory, (abspath, rootdir, subdir, filename) => {
       if (/\.jade$/i.test(filename)) {
         filename = filename.replace('.jade', '.html')
-        json.remote.push(`http://${ma.domain.ochat}/${projectName}/prd/pages/${filename}`);
+        json.remote.push(`http://${ma.ochatDomain}/${projectName}/prd/pages/${filename}`);
       }
     });
     let yaml = require('js-yaml').safeDump(json);
