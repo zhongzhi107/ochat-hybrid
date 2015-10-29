@@ -13,6 +13,7 @@ export default {
   target: [
     'Gruntfile.es6',
     'config/**/*.js',
-    '<%=ma.path.app%>/**/*.js'
+    '<%=ma.path.app%>/**/*.js',
+    '!<%=ma.path.app%>/assets/**/*.js'
   ],
 };

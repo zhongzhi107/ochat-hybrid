@@ -6,6 +6,9 @@
 'use strict';
 
 export default {
+  options: {
+    pretty: true
+  },
   dist: {
     expand: true,
     ext: '.html',
