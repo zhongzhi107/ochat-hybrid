@@ -41,17 +41,23 @@ const ENTRY_FILE_NAME = 'entry.js';
 // JS文件输出目录
 const PUBLIC_PATH = 'js';
 
+const HOT_MIDDLEWARE_SCRIPT = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000';
+
 // webpack插件
 let plugins = [
+  // 定义全局变量，注意变量类型
   new webpack.DefinePlugin({
     NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-  }),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
+  })
 ];
 
-if (!DEBUG) {
+if (DEBUG) {
+  plugins.push(
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  );
+} else {
   // 添加uglify插件压缩代码
   plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
@@ -74,11 +80,14 @@ if (!DEBUG) {
 */
 var getEntries = () => {
   let entries = {};
-  entries.__webpack_hmr = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000';
 
   grunt.file.recurse(PAGE_DIRECTORY, (abspath, rootdir, subdir, filename) => {
+    let chunkName = `${subdir}.js`;
     if (filename === ENTRY_FILE_NAME) {
-      entries[`${subdir}.js`] = './' + abspath;
+      entries[chunkName] = ['./' + abspath];
+      if (DEBUG) {
+        entries[chunkName].push(HOT_MIDDLEWARE_SCRIPT);
+      }
     }
   });
 
@@ -109,7 +118,7 @@ export default {
       lazy: false,
       publicPath: '/' + PUBLIC_PATH,
       stats: {
-        colors: true
+        colors: DEBUG
       }
     },
     entry: getEntries(),

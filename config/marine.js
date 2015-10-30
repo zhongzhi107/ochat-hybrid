@@ -29,21 +29,6 @@ let common = {
 
   // 打包规则
   chunks: [
-    {
-      name: 'redux.js',
-      modules: [
-        'redux',
-        'react-redux'
-      ]
-    },
-
-    {
-      name: 'remove.js',
-      modules: [
-        'classnames',
-        'core-decorators'
-      ]
-    },
 
     // CommonsChunkPlugin会将最后一个当作Entry chunk
     // Todo: 通过参数控制Entry chunk
@@ -52,8 +37,10 @@ let common = {
       modules: [
         'react',
         'react-dom',
-        // 'redux',
-        // 'react-redux',
+        'redux',
+        'react-redux',
+        'classnames',
+        'core-decorators',
         'utils/http'
       ]
     },
